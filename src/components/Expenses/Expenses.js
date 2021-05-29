@@ -18,13 +18,18 @@ const Expenses = (props) => {
           selected={filteredYear}
           onFilterChange={dropdownChangeHandler}
         />
-        {props.items.map((item) => (
-          <ExpenseItem
-            title={item.title}
-            amount={item.amount}
-            date={item.date}
-          />
-        ))}
+        {props.items
+          .filter((item) => {
+            console.log(filteredYear);
+            return item.date.getFullYear().toString() === filteredYear;
+          })
+          .map((item) => (
+            <ExpenseItem
+              title={item.title}
+              amount={item.amount}
+              date={item.date}
+            />
+          ))}
       </Card>
     </div>
   );
