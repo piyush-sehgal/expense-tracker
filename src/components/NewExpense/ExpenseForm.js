@@ -49,7 +49,7 @@ const ExpenseForm = (props) => {
   };
 
   const submitHandler = (event) => {
-    event.preventDefault();
+    event.preventDefault();//used to override default submit behavior of the browser
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
